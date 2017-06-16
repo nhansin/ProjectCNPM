@@ -15,15 +15,12 @@
         android:subtitle="BaiViet"
         app:theme="@style/ThemeToolbar"/>
 
-    <org.sufficientlysecure.htmltextview.HtmlTextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/imgTest"
+    <WebView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:id="@+id/noiDung">
+
+
+    </WebView>
 
 </LinearLayout>

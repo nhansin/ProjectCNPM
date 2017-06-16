@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.project.sinsin.project.*;
+import app.project.sinsin.project.dao.BaiVietDAO;
 import app.project.sinsin.project.model.BaiViet;
 import app.project.sinsin.project.tab2.BacSyAdapter;
 
@@ -22,12 +23,8 @@ public class ListBaiViet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_bai_viet);
 
-        ArrayList<BaiViet> listBaiViet = new ArrayList<>(); //luc sau lay database bo vao
-        listBaiViet.add(new BaiViet(1, "BaiViet1", "Noi dung bai viet 1"));
-        listBaiViet.add(new BaiViet(2, "BaiViet2", "Noi dung bai viet 2"));
-        listBaiViet.add(new BaiViet(3, "BaiViet3", "Noi dung bai viet 3"));
-        listBaiViet.add(new BaiViet(4, "BaiViet4", "Noi dung bai viet 4"));
-        listBaiViet.add(new BaiViet(5, "BaiViet5", "Noi dung bai viet 5"));
+        BaiVietDAO baiVietDAO = new BaiVietDAO();
+        ArrayList<BaiViet> listBaiViet = baiVietDAO.listBaiViet;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,8 +45,12 @@ public class ListBaiViet extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println("Chuyen man hinh");
                 Intent intent = new Intent(ListBaiViet.this, ChiTietBaiViet.class);
+                intent.putExtra("id",position);
+                System.out.println("Gui id sang ChiTietBaiViet");
                 startActivity(intent);
+
             }
         });
     }

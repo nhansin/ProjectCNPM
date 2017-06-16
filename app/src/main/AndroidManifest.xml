@@ -3,6 +3,9 @@
     package="app.project.sinsin.project">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
@@ -20,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".content.ChiTietBaiViet" />
         <activity android:name=".content.ListBaiViet" />
+        <activity android:name=".content.ChiTietBaiViet" />
         <activity android:name=".tab3.ThemNhatKy" />
         <activity android:name=".MainActivity"></activity>
     </application>

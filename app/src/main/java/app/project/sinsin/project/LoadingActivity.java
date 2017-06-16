@@ -18,5 +18,6 @@ public class LoadingActivity extends AppCompatActivity {
                 startActivity(mainIntent);
             }
         }, 1000);
+        finish();
     }
 }

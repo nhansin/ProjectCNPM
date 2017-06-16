@@ -6,11 +6,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import app.project.sinsin.project.R;
+import app.project.sinsin.project.dao.BacSyDAO;
 import app.project.sinsin.project.model.BacSy;
 
 /**
@@ -23,15 +29,12 @@ public class Tab2BacSy extends Fragment {
     ArrayList<BacSy> listBacSy;
     ListView listView;
     BacSyAdapter adapter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        listBacSy = new ArrayList<>();
-        listBacSy.add(new BacSy("BacSy1", "0000xxxx", "jffffff@mgail", "drawable/logo"));
-        listBacSy.add(new BacSy("BacSy2", "0000xxxx", "jffffff@mgail", "drawable/logo"));
-        listBacSy.add(new BacSy("BacSy3", "0000xxxx", "jffffff@mgail", "drawable/logo"));
-        listBacSy.add(new BacSy("BacSy4", "0000xxxx", "jffffff@mgail", "drawable/logo"));
+        BacSyDAO bacSyDAO = new BacSyDAO();
+        listBacSy = bacSyDAO.listBacSy;
 
         View rootView = inflater.inflate(R.layout.activity_tab2, container, false);
         listView = (ListView) rootView.findViewById(R.id.listViewBacSy);
@@ -40,4 +43,5 @@ public class Tab2BacSy extends Fragment {
 
         return rootView;
     }
+
 }
