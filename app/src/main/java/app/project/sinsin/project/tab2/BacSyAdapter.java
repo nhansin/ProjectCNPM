@@ -73,6 +73,14 @@ public class BacSyAdapter extends ArrayAdapter<BacSy> {
 
             }
         });
+
+
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return convertView;
     }
 }
