@@ -11,7 +11,7 @@
         android:id="@+id/listViewNhatKy" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fabThemNhatKy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -23,5 +23,9 @@
         app:backgroundTint="#4298f4"
         android:tint="#fff"
         />
+
+    <!--<include-->
+        <!--android:id="@+id/fabThemNhatKy"-->
+        <!--layout="@layout/open_fab_button" />-->
 
 </android.support.design.widget.CoordinatorLayout>

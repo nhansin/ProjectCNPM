@@ -15,9 +15,12 @@ public class LoadingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 final Intent mainIntent = new Intent(LoadingActivity.this, MainActivity.class);
+//                mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(mainIntent);
+                finish();
             }
         }, 1000);
-        finish();
+
     }
 }

@@ -78,6 +78,16 @@ public class BacSyAdapter extends ArrayAdapter<BacSy> {
         btnEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setData(Uri.parse("mailto:"));
+                String to = listBacSy.get(position).getEmail();
+                intent.putExtra(Intent.EXTRA_EMAIL, to);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Email subject");
+                intent.putExtra(Intent.EXTRA_TEXT, "This email is testing mail sent from my app");
+
+                intent.setType("message/rfc822");
+                Intent chooser = Intent.createChooser(intent,"Send Email");
+                context.startActivity(chooser);
 
             }
         });
