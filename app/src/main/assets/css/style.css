@@ -1,0 +1,31 @@
+body{
+			margin:0 auto;
+		}
+		h3{
+			color: #12A5F4;
+			font-size: 32px;
+			text-align: center;
+		}
+		button{
+		color:red;
+		}
+        li{
+        color:#12A5F4;
+        margin-left:5px;
+        margin-top:15px;
+        }
+        p{
+        margin-top:1px;
+        padding-top:0px 10px;
+        }
+        h5{
+        text-align:right;
+        margin-right:5px;}
+
+		#content{
+		margin:0 10px;
+		}
+		img{
+		width:300px;
+		}
+

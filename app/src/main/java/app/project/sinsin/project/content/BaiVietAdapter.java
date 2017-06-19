@@ -1,6 +1,8 @@
 package app.project.sinsin.project.content;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,8 +40,10 @@ public class BaiVietAdapter extends ArrayAdapter<BaiViet> {
         TextView textView = (TextView) convertView.findViewById(R.id.textView);
 
         BaiViet baiViet = listBaiViet.get(position);
-        imageViewTen.setImageResource(R.drawable.logo);
+        Bitmap hinhDaiDien= BitmapFactory.decodeByteArray(baiViet.getAnhDaiDien(),0,baiViet.getAnhDaiDien().length);
+        imageViewTen.setImageBitmap(hinhDaiDien);
         textView.setText(baiViet.getTieuDe());
         return convertView;
     }
 }
+

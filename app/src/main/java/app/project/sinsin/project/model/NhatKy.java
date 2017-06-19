@@ -1,8 +1,6 @@
 package app.project.sinsin.project.model;
 
-        import java.util.Date;
-
-/**
+        /**
  * Created by SINSIN on 5/15/2017.
  */
 
@@ -10,10 +8,10 @@ public class NhatKy {
     private int maNhatKy;
     private String tieuDe;
     private String noiDung;
-    private Date ngay;
-    private String hinhAnh;
+    private String ngay;
+    private byte[] hinhAnh;
 
-    public NhatKy(int maNhatKy, String tieuDe, String noiDung, Date ngay, String hinhAnh) {
+    public NhatKy(int maNhatKy, String tieuDe, String noiDung, String ngay, byte[] hinhAnh) {
         this.maNhatKy = maNhatKy;
         this.tieuDe = tieuDe;
         this.noiDung = noiDung;
@@ -33,12 +31,16 @@ public class NhatKy {
         return noiDung;
     }
 
-    public Date getNgay() {
+    public String getNgay() {
         return ngay;
     }
 
-    public String getHinhAnh() {
+    public byte[] getHinhAnh() {
         return hinhAnh;
+    }
+
+    public void setHinhAnh(byte[] hinhAnh) {
+        this.hinhAnh = hinhAnh;
     }
 
     public void setMaNhatKy(int maNhatKy) {
@@ -53,11 +55,8 @@ public class NhatKy {
         this.noiDung = noiDung;
     }
 
-    public void setNgay(Date ngay) {
+    public void setNgay(String ngay) {
         this.ngay = ngay;
     }
 
-    public void setHinhAnh(String hinhAnh) {
-        this.hinhAnh = hinhAnh;
-    }
 }

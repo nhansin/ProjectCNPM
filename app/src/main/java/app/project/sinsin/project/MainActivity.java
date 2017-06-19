@@ -1,22 +1,26 @@
 package app.project.sinsin.project;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import app.project.sinsin.project.model.Connection;
 import app.project.sinsin.project.tab1.Tab1ChucNang;
 import app.project.sinsin.project.tab2.Tab2BacSy;
 import app.project.sinsin.project.tab3.Tab3NhatKy;
 
 public class MainActivity extends AppCompatActivity {
-
+    final String DATABASE_NAME="NhatKyBiBauDB2.sqlite";
+    public static SQLiteDatabase database;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -31,11 +35,18 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    TabLayout tabLayout;
+    int icon[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        database= Connection.initDatabase(this,DATABASE_NAME);
+        int maBaiViet=2;
+        Cursor cursor=database.rawQuery("SELECT * FROM BaiViet where maBaiViet=\"maBaiViet\"",null);
+        cursor.moveToLast();
+        Toast.makeText(this, cursor.getString(4), Toast.LENGTH_LONG).show();
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -47,11 +58,16 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        icon= new int[]{R.drawable.content, R.drawable.contact, R.drawable.dialog};
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+        setUpTabIcon();
 
 
     }
+
+
 
 
     @Override
@@ -108,18 +124,25 @@ public class MainActivity extends AppCompatActivity {
             // Show 3 total pages.
             return 3;
         }
+//
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            switch (position) {
+//                case 0:
+//                    return "TAB 1";
+//                case 1:
+//                    return "TAB 2";
+//                case 2:
+//                    return "TAB 3";
+//            }
+//            return null;
+//        }
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "TAB 1";
-                case 1:
-                    return "TAB 2";
-                case 2:
-                    return "TAB 3";
-            }
-            return null;
-        }
+    }
+    public void setUpTabIcon(){
+        tabLayout.getTabAt(0).setIcon(icon[0]);
+        tabLayout.getTabAt(1).setIcon(icon[1]);
+        tabLayout.getTabAt(2).setIcon(icon[2]);
+
     }
 }

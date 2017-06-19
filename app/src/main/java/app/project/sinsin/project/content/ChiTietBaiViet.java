@@ -4,20 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import org.sufficientlysecure.htmltextview.HtmlHttpImageGetter;
-import org.sufficientlysecure.htmltextview.HtmlTextView;
+import java.util.HashMap;
 
-import java.util.ArrayList;
-
-import app.project.sinsin.project.*;
-import app.project.sinsin.project.dao.BaiVietDAO;
+import app.project.sinsin.project.R;
+import app.project.sinsin.project.dao.BaiVietDao;
 import app.project.sinsin.project.model.BaiViet;
 
 /**
@@ -25,30 +19,54 @@ import app.project.sinsin.project.model.BaiViet;
  */
 
 public class ChiTietBaiViet extends AppCompatActivity {
-    WebView noiDung;
+    WebView webView;
     Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bai_viet);
+        Intent intent =getIntent();
+        int id=intent.getIntExtra("id", 0);
+        int maBaiViet=intent.getIntExtra("maBaiViet",0);
+        Toast.makeText(this,maBaiViet+"",Toast.LENGTH_LONG).show();
+        BaiVietDao baiVietDao=new BaiVietDao();
 
-        noiDung = (WebView) findViewById(R.id.noiDung);
-        noiDung.getSettings().setJavaScriptEnabled(true);
-        noiDung.getSettings().setDefaultTextEncodingName("utf-8");
+        //  ArrayList<BaiViet> baiViets=baiVietDao.dsDanhMucChucNang(id);
+        BaiViet baiViet=baiVietDao.chiTietBaiViet(maBaiViet);
+        Toast.makeText(this,maBaiViet+"",Toast.LENGTH_LONG).show();
+        String tieuDe=baiViet.getTieuDe();
+        String hinhAnh=baiViet.getHinhAnh();
+        HashMap<String, String> mapNoiDung=baiViet.getListNoiDung();
 
-        //Tao listBaiViet tu lop DAO
+        webView = (WebView) findViewById(R.id.webview);
 
-        BaiVietDAO baiVietDAO = new BaiVietDAO();
-        ArrayList<BaiViet> listBaiViet = baiVietDAO.listBaiViet;
-        Intent i = getIntent();
+        StringBuilder html=new StringBuilder();
+        html.append("<html>");
+        html.append("<head>");
+        html.append("<link rel=stylesheet href='css/style.css'>");
+        html.append("</head>");
+        html.append("<body>");
 
-        int maBaiViet = i.getIntExtra("id", 0);
-        System.out.println(maBaiViet);
-        String html = listBaiViet.get(maBaiViet).getNoiDung();
-        noiDung.loadData(html, "text/html; charset=UTF-8", "utf-8");
+        html.append("<div align=\"center\"><img src="+hinhAnh+"></div>");
+        // html.append("<h3>"+tieuDe+"</h3>");
 
+        html.append("<div id=\"content\">");
+        for (String key : mapNoiDung.keySet()) {
+            html.append("<li>"+key+"</li>");
+            html.append("<p>" + mapNoiDung.get(key) + "</p>");
+        }
+        html.append("</div>");
+
+        html.append("</body></html>");
+
+        webView.loadDataWithBaseURL("file:///android_asset/", html.toString(), "text/html", "UTF-8", "");
+
+
+//        webView.getSettings().setJavaScriptEnabled(true);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(tieuDe);
+
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

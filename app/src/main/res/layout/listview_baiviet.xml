@@ -7,22 +7,26 @@
     android:orientation="horizontal"
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
-    tools:context="app.project.sinsin.project.content.BaiVietAdapter">
+    tools:context="app.project.sinsin.project.content.BaiVietAdapter"
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
+        android:layout_width="80dp"
         android:src="@drawable/logo" />
 
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sin Sin"
-        android:paddingTop="20dp"
-        android:textSize="15sp" />
+        android:layout_gravity="center_vertical"
+        android:maxLines="3"
+        android:singleLine="false"
+        android:paddingLeft="5dp"
+        android:textSize="14sp" />
 
 
 </LinearLayout>

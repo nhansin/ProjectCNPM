@@ -1,7 +1,11 @@
 package app.project.sinsin.project.dao;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.util.ArrayList;
 
+import app.project.sinsin.project.MainActivity;
 import app.project.sinsin.project.model.BacSy;
 
 /**
@@ -14,13 +18,21 @@ public class BacSyDAO {
 
     public BacSyDAO() {
         listBacSy = new ArrayList<>();
-        createDatabase();
+     //   createDatabase();
     }
 
-    private void createDatabase() {
-        listBacSy.add(new BacSy("BacSy1", "0169 252 6508", "14130274@st.hcmuaf.edu.vn", "drawable/logo"));
-        listBacSy.add(new BacSy("BacSy2", "01699552922", "jffffff@mgail", "drawable/logo"));
-        listBacSy.add(new BacSy("BacSy3", "01225570944", "jffffff@mgail", "drawable/logo"));
-        listBacSy.add(new BacSy("BacSy4", "0583640680", "jffffff@mgail", "drawable/logo"));
+    public ArrayList<BacSy> dsBacSi(){
+        ArrayList<BacSy> list=new ArrayList<>();
+        SQLiteDatabase database= MainActivity.database;
+        Cursor cursor=database.rawQuery("SELECT * FROM BacSi",null);
+        for(int i=0;i<cursor.getCount();i++){
+            cursor.moveToPosition(i);
+            list.add(new BacSy(cursor.getString(1),cursor.getString(3),cursor.getString(4),cursor.getBlob(5)));
+        }
+        cursor.close();
+
+        return  list;
+
+
     }
 }

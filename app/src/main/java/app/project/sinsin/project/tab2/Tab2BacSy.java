@@ -6,12 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,7 +29,7 @@ public class Tab2BacSy extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         BacSyDAO bacSyDAO = new BacSyDAO();
-        listBacSy = bacSyDAO.listBacSy;
+        listBacSy = bacSyDAO.dsBacSi();
 
         View rootView = inflater.inflate(R.layout.activity_tab2, container, false);
         listView = (ListView) rootView.findViewById(R.id.listViewBacSy);

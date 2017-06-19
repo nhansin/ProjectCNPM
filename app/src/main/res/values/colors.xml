@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D81B60</color>
-    <color name="colorPrimaryDark">#C2185B</color>
+    <color name="colorPrimary">#12A5F4</color>
+    <color name="colorPrimaryDark">#12A5F4</color>
     <color name="colorAccent">#fff</color>
     <color name="colorFabButton1">#009688</color>
     <color name="colorFabButton3">#FDD835</color>
     <color name="colorFabButton2">#E53935</color>
-    
+
     <color name="textColorPrimary">#fff</color>
+
+
+    <color name="background">#ffffff</color>
+    <color name="background_button">#12A5F4</color>
+
+
 
 
 </resources>

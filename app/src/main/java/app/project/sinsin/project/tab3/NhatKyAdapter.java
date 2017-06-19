@@ -1,6 +1,7 @@
 package app.project.sinsin.project.tab3;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import app.project.sinsin.project.R;
-import app.project.sinsin.project.model.BacSy;
 import app.project.sinsin.project.model.NhatKy;
 
 /**
@@ -37,11 +37,13 @@ public class NhatKyAdapter extends ArrayAdapter<NhatKy>{
         convertView = LayoutInflater.from(context).inflate(R.layout.listview_nhatky, parent, false);
         TextView textViewTieuDe = (TextView) convertView.findViewById(R.id.textViewTieuDe);
         TextView textViewNgay = (TextView) convertView.findViewById(R.id.textViewNgay);
+        ImageView imageView= (ImageView) convertView.findViewById(R.id.imageViewNhatKy);
 
 
         NhatKy nhatKy = listNhatKy.get(position);
         textViewTieuDe.setText(nhatKy.getTieuDe());
-        textViewNgay.setText("date here");
+        textViewNgay.setText(nhatKy.getNgay());
+        imageView.setImageBitmap(BitmapFactory.decodeByteArray(nhatKy.getHinhAnh(),0,nhatKy.getHinhAnh().length));
         return convertView;
     }
 }
