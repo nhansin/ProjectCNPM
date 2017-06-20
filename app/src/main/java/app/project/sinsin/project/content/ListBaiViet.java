@@ -24,14 +24,11 @@ public class ListBaiViet extends AppCompatActivity {
         setContentView(R.layout.activity_list_bai_viet);
 
         Intent intent = getIntent();
-        int maDanhMuc=intent.getIntExtra("maDanhMuc", 0);
-        BaiVietDao baiVietDao=new BaiVietDao();
-        DanhMucChucNangDao danhMucChucNangDao=new DanhMucChucNangDao();
-        Toast.makeText(this,maDanhMuc+"", Toast.LENGTH_LONG).show();
-        final ArrayList<BaiViet> baiViets=baiVietDao.dsDanhMucChucNang(maDanhMuc);
-
-
-
+        int maDanhMuc = intent.getIntExtra("maDanhMuc", 0);
+        BaiVietDao baiVietDao = new BaiVietDao();
+        DanhMucChucNangDao danhMucChucNangDao = new DanhMucChucNangDao();
+        Toast.makeText(this, maDanhMuc + "", Toast.LENGTH_LONG).show();
+        final ArrayList<BaiViet> baiViets = baiVietDao.dsDanhMucChucNang(maDanhMuc);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -56,7 +53,7 @@ public class ListBaiViet extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListBaiViet.this, ChiTietBaiViet.class);
                 // intent.putExtra("id",id);
-                intent.putExtra("maBaiViet",baiViets.get(position).getMaBaiViet());
+                intent.putExtra("maBaiViet", baiViets.get(position).getMaBaiViet());
                 startActivity(intent);
             }
         });

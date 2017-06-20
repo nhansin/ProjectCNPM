@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class ThemNhatKy extends AppCompatActivity {
     boolean show;
     File imgFile;
     ImageView imgNhatKy;
+    EditText edtTieuDe, edtNoiDung;
     int REQUEST_CODE_CAMERA = 123;
     int REQUEST_CODE_GALLERY = 456;
 
@@ -58,6 +60,17 @@ public class ThemNhatKy extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ThemNhatKy.this, "Saved", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        edtTieuDe = (EditText) findViewById(R.id.editTextTieuDe);
+        edtNoiDung = (EditText) findViewById(R.id.editTextNoiDung);
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String tieuDe = edtTieuDe.getText().toString();
+                String noiDung = edtNoiDung.getText().toString();
             }
         });
 
