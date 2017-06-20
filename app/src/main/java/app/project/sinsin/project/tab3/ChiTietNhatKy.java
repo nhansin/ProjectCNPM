@@ -26,7 +26,13 @@ Toolbar toolbar;
         ImageView imageView= (ImageView) findViewById(R.id.image_nhatky);
         WebView webView= (WebView) findViewById(R.id.view_nhatky);
 
-
+        webView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return true;
+            }
+        });
+        webView.setLongClickable(false);
 
         NhatKyDao nhatKyDao=new NhatKyDao();
         Intent intent=getIntent();

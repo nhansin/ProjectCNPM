@@ -41,6 +41,16 @@ public class ChiTietBaiViet extends AppCompatActivity {
 
         webView = (WebView) findViewById(R.id.webview);
 
+        //disable selection text in webview
+        webView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return true;
+            }
+        });
+        webView.setLongClickable(false);
+
+
         StringBuilder html=new StringBuilder();
         html.append("<html>");
         html.append("<head>");

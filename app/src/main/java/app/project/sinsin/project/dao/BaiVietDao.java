@@ -45,9 +45,9 @@ public class BaiVietDao {
 
 
     }
-    public static void main(String[] args){
-        BaiVietDao baiVietDao=new BaiVietDao();
-        System.out.println(baiVietDao.chiTietBaiViet(1));
-
-    }
+//    public static void main(String[] args){
+//        BaiVietDao baiVietDao=new BaiVietDao();
+//        System.out.println(baiVietDao.chiTietBaiViet(1));
+//
+//    }
 }

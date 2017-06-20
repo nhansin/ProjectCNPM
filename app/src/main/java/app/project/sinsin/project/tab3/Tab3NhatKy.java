@@ -57,16 +57,7 @@ public class Tab3NhatKy extends Fragment {
         fabThemNhatKy = (FloatingActionButton) rootView.findViewById(R.id.fabThemNhatKy);
         if (fabThemNhatKy != null) System.out.println("Fab");
 
-        fab1 = (FloatingActionButton) rootView.findViewById(R.id.fab1);
-        if (fab1 != null) System.out.println("Fab1");
-        fab2 = (FloatingActionButton) rootView.findViewById(R.id.fab2);
-        if (fab2 != null) System.out.println("Fab2");
 
-        fab3 = (FloatingActionButton) rootView.findViewById(R.id.fab3);
-        if (fab3 != null) System.out.println("Fab3");
-//        fab1.hide();
-//        fab2.hide();
-//        fab3.hide();
 
         fabThemNhatKy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,17 +65,7 @@ public class Tab3NhatKy extends Fragment {
                 // Click action
                 Intent intent = new Intent(getActivity(), ThemNhatKy.class);
                 startActivity(intent);
-//                if (show == false) {
-//                    fab1.show();
-//                    fab2.show();
-//                    fab3.show();
-//                    show = true;
-//                } else {
-//                    fab1.hide();
-//                    fab2.hide();
-//                    fab3.hide();
-//                    show = false;
-//                }
+
             }
         });
 

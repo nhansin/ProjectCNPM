@@ -6,19 +6,19 @@
     android:orientation="vertical">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab1"
+        android:id="@+id/fabCamera"
         android:layout_width="@dimen/fabButtonSize"
         android:layout_height="@dimen/fabButtonSize"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="80dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginRight="80dp"
         android:src="@drawable/ic_camera"
         android:visibility="invisible"
         app:backgroundTint="@color/colorFabButton1" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab2"
-        android:layout_width="@dimen/fabButtonSize"
+        android:id="@+id/fabGallery"
+        android:layout_width="51dp"
         android:layout_height="@dimen/fabButtonSize"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="65dp"
@@ -28,7 +28,7 @@
         app:backgroundTint="@color/colorFabButton2" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab3"
+        android:id="@+id/fabShare"
         android:layout_width="@dimen/fabButtonSize"
         android:layout_height="@dimen/fabButtonSize"
         android:layout_gravity="bottom|end"
