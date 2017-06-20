@@ -46,7 +46,7 @@ public class BacSyAdapter extends ArrayAdapter<BacSy> {
         final TextView tvTenBacSy = (TextView) convertView.findViewById(R.id.tvTenBacSy);
 
         BacSy bacSy = listBacSy.get(position);
-        imageViewTen.setImageResource(R.drawable.logo);
+        imageViewTen.setImageResource(R.drawable.doc);
         tvTenBacSy.setText(bacSy.getTen());
 
 
