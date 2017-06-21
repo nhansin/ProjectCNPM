@@ -29,7 +29,8 @@
         <activity android:name=".tab3.ThemNhatKy" />
         <activity android:name=".tab3.ChiTietNhatKy" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".tab2.SendMail"></activity>
+        <activity android:name=".tab2.SendMail" />
+        <activity android:name=".content.Activity_BaiViet"></activity>
     </application>
 
 </manifest>

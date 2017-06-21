@@ -39,11 +39,12 @@ public class NhatKyAdapter extends ArrayAdapter<NhatKy>{
         TextView textViewNgay = (TextView) convertView.findViewById(R.id.textViewNgay);
         ImageView imageView= (ImageView) convertView.findViewById(R.id.imageViewNhatKy);
 
-
         NhatKy nhatKy = listNhatKy.get(position);
         textViewTieuDe.setText(nhatKy.getTieuDe());
         textViewNgay.setText(nhatKy.getNgay());
         imageView.setImageBitmap(BitmapFactory.decodeByteArray(nhatKy.getHinhAnh(),0,nhatKy.getHinhAnh().length));
+
+
         return convertView;
     }
 }

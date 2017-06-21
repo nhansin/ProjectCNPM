@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:subtitle="BaiViet"
+        app:theme="@style/ThemeToolbar"/>
+    <TextView
+        android:id="@+id/tvVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"
+        android:text="VIDEO SU PHAT TRIEN THEO TUAN"
+        android:textAlignment="center"/>
+
+    <WebView
+        android:id="@+id/webViewVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </WebView>
+</LinearLayout>

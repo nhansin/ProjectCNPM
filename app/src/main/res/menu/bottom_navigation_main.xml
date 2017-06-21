@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_search"
-        android:title="MENU1"
-        android:icon="@drawable/ic_photo" />
-    <item android:id="@+id/action_cart"
-        android:title="MENU2"
-        android:icon="@drawable/ic_camera" />
-    <item android:id="@+id/action_hot_deals"
-        android:title="MENU3"
-        android:icon="@drawable/call" />
+    <item
+        android:id="@+id/action_item1"
+        android:icon="@drawable/call"
+        android:title="TỔNG QUAN" />
+    <item
+        android:id="@+id/action_item2"
+        android:icon="@drawable/ic_camera"
+        android:title="THỰC PHẨM" />
+    <item
+        android:id="@+id/action_item3"
+        android:icon="@drawable/contact"
 
+        android:title="MÓN ĂN" />
+
+    <item
+        android:id="@+id/action_item4"
+        android:icon="@drawable/mail"
+        android:title="MÓN ĂN" />
 </menu>
