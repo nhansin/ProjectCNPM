@@ -8,13 +8,15 @@
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
     tools:context="app.project.sinsin.project.content.BaiVietAdapter"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:paddingLeft="10dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_height="80dp"
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
-        android:src="@drawable/logo" />
+        android:layout_height="80dp"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/imageView"
+        android:src="@drawable/can_mua"/>
 
 
     <TextView

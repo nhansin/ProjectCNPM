@@ -1,30 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar"
-        android:subtitle="BaiViet"
-        app:theme="@style/ThemeToolbar"/>
-    <ImageView android:layout_height="150dp"
-        android:layout_width="300dp"
-        android:id="@+id/image_nhatky"
-        android:layout_gravity="center"
-        />
-    <WebView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_nhatky">
+        android:orientation="vertical">
 
-    </WebView>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:subtitle="BaiViet"
+            android:theme="?attr/actionBarTheme"
+            app:theme="@style/ThemeToolbar" />
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/image_nhatky"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/txtTitleNhatKy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24dp" />
+
+        <WebView
+            android:id="@+id/view_nhatky"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </WebView>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabShare"
+        android:layout_width="@dimen/fabButtonSize"
+        android:layout_height="@dimen/fabButtonSize"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="26dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_share"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorPrimary" />
+
+</FrameLayout>

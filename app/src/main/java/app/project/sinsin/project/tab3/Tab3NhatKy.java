@@ -10,13 +10,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -57,6 +55,8 @@ public class Tab3NhatKy extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getActivity(), position+"", Toast.LENGTH_LONG).show();
+
                 Intent intent = new Intent(getActivity(), ChiTietNhatKy.class);
                 intent.putExtra("maNhatKy", listNhatKy.get(position).getMaNhatKy());
                 startActivity(intent);
@@ -111,8 +111,8 @@ public class Tab3NhatKy extends Fragment {
                 AlertDialog diaBox = AskOption(info.position);
 
                 diaBox.show();
-                diaBox.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLUE);
-                diaBox.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE);
+                diaBox.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.argb(1000,18,165,244));
+                diaBox.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED);
 
                 return true;
 
@@ -133,6 +133,11 @@ public class Tab3NhatKy extends Fragment {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //your deleting code
+
+
+
+                      //  Toast.makeText(getActivity(),listNhatKy.get(positionToDelete).getMaNhatKy()+"",Toast.LENGTH_LONG).show();
+                        nhatKyDao.xoaNhatKy(listNhatKy.get(positionToDelete).getMaNhatKy());
                         listNhatKy.remove(positionToDelete);
                         adapter.notifyDataSetChanged();
                         dialog.dismiss();

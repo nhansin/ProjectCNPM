@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import app.project.sinsin.project.R;
 import app.project.sinsin.project.model.BaiViet;
+import app.project.sinsin.project.model.ImageConverter;
 
 /**
  * Created by SINSIN on 4/18/2017.
@@ -41,7 +42,8 @@ public class BaiVietAdapter extends ArrayAdapter<BaiViet> {
 
         BaiViet baiViet = listBaiViet.get(position);
         Bitmap hinhDaiDien= BitmapFactory.decodeByteArray(baiViet.getAnhDaiDien(),0,baiViet.getAnhDaiDien().length);
-        imageViewTen.setImageBitmap(hinhDaiDien);
+        Bitmap circularBitmap = ImageConverter.getRoundedCornerBitmap(hinhDaiDien, 100);
+        imageViewTen.setImageBitmap(circularBitmap);
         textView.setText(baiViet.getTieuDe());
         return convertView;
     }

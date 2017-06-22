@@ -1,6 +1,7 @@
 package app.project.sinsin.project.tab3;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import app.project.sinsin.project.R;
+import app.project.sinsin.project.model.ImageConverter;
 import app.project.sinsin.project.model.NhatKy;
 
 /**
@@ -42,7 +44,9 @@ public class NhatKyAdapter extends ArrayAdapter<NhatKy>{
         NhatKy nhatKy = listNhatKy.get(position);
         textViewTieuDe.setText(nhatKy.getTieuDe());
         textViewNgay.setText(nhatKy.getNgay());
-        imageView.setImageBitmap(BitmapFactory.decodeByteArray(nhatKy.getHinhAnh(),0,nhatKy.getHinhAnh().length));
+        Bitmap bitmap=BitmapFactory.decodeByteArray(nhatKy.getHinhAnh(),0,nhatKy.getHinhAnh().length);
+        Bitmap imageBitmap= ImageConverter.getRoundedCornerBitmap(bitmap, 100);
+        imageView.setImageBitmap(imageBitmap);
 
 
         return convertView;

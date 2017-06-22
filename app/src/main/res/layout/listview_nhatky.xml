@@ -2,12 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/imageViewNhatKy"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp">
+    <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/logo" />
+        android:paddingLeft="5dp"
+        android:id="@+id/imageViewNhatKy"
+        android:layout_below="@+id/imageView"
+        android:src="@drawable/can_mua"
+        />
 
     <LinearLayout
         android:orientation="vertical"

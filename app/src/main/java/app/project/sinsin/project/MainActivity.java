@@ -1,6 +1,5 @@
 package app.project.sinsin.project;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -11,7 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import app.project.sinsin.project.model.Connection;
 import app.project.sinsin.project.tab1.Tab1ChucNang;
@@ -19,7 +17,7 @@ import app.project.sinsin.project.tab2.Tab2BacSy;
 import app.project.sinsin.project.tab3.Tab3NhatKy;
 
 public class MainActivity extends AppCompatActivity {
-    final String DATABASE_NAME="NhatKyBiBauDB2.sqlite";
+    final String DATABASE_NAME="NhatKyBiBauDB1.sqlite";
     public static SQLiteDatabase database;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -43,15 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         database= Connection.initDatabase(this,DATABASE_NAME);
-        int maBaiViet=2;
-        Cursor cursor=database.rawQuery("SELECT * FROM BaiViet where maBaiViet=\"maBaiViet\"",null);
-        cursor.moveToLast();
-        Toast.makeText(this, cursor.getString(4), Toast.LENGTH_LONG).show();
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.

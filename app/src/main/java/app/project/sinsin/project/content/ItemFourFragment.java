@@ -1,20 +1,20 @@
 package app.project.sinsin.project.content;
 
-import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Display;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import app.project.sinsin.project.R;
+import app.project.sinsin.project.dao.BaiVietDao;
 
 /**
  * Created by nhan-dev on 6/20/2017.
@@ -39,22 +39,30 @@ public class ItemFourFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        int maThaiKy = getArguments().getInt("maThaiKy");
+
+        Toast.makeText(getActivity(),maThaiKy+"",Toast.LENGTH_SHORT).show();
+
         View rootView = inflater.inflate(R.layout.fragment_item_4, container, false);
 
 
-        Display display = getActivity().getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int width = (int) (size.x/2.1);
-        int height = (width * 9) / 16;
+
+        BaiVietDao baiVietDao=new BaiVietDao();
+        String url=baiVietDao.linkVideo(maThaiKy);
 
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
 
-        String url = "https://www.youtube.com/embed/7KH6L-dDji0";
-//        <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+//chiều cao
+        int height =(int)(displayMetrics.heightPixels/3);
+// chiều rộng
+        int width = (int)(displayMetrics.widthPixels/1.57);
+        url=url.replace("560",""+width);
+        url=url.replace("315",""+height);
 
-        String html = "<html><body><br><iframe width="+width+" height="+height+" src="+url+" frameborder="+0+" allowfullscreen></iframe></body></html>";
 
+        String html = "<html><body><br>"+url+"</body></html>";
 
         displayYoutubeVideo = (WebView) rootView.findViewById(R.id.webViewVideo);
         displayYoutubeVideo.setWebViewClient(new WebViewClient() {

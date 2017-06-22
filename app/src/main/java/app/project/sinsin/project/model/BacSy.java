@@ -5,16 +5,42 @@ package app.project.sinsin.project.model;
  */
 
 public class BacSy {
+    private int maBacSy;
+    private String chuyenMon;
+    private String diaChi;
     private String ten;
     private String soDienThoai, email;
     private byte[] hinhAnh;
 
-    public BacSy(String ten, String soDienThoai, String email, byte[] hinhAnh) {
-        this.ten = ten;
-        this.soDienThoai = soDienThoai;
-        this.email = email;
-        this.hinhAnh = hinhAnh;
+    public int getMaBacSy() {
+        return maBacSy;
     }
+
+    public void setMaBacSy(int maBacSy) {
+        this.maBacSy = maBacSy;
+    }
+
+    public String getChuyenMon() {
+        return chuyenMon;
+    }
+
+    public void setChuyenMon(String chuyenMon) {
+        this.chuyenMon = chuyenMon;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+//    public BacSy(String ten, String soDienThoai, String email, byte[] hinhAnh) {
+//        this.ten = ten;
+//        this.soDienThoai = soDienThoai;
+//        this.email = email;
+//        this.hinhAnh = hinhAnh;
+//    }
 
     public BacSy() {
     }

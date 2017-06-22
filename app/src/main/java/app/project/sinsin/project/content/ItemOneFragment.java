@@ -1,6 +1,5 @@
 package app.project.sinsin.project.content;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -40,26 +39,25 @@ public class ItemOneFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        int maBaiViet =getArguments().getInt("maThaiKy");
         View rootView = inflater.inflate(R.layout.activity_bai_viet, container, false);
 
-        //my code
-//        Intent intent = rootView.getIntent();
-//        int id = intent.getIntExtra("id", 0);
-//        int maBaiViet = intent.getIntExtra("maBaiViet", 0);
-        int maBaiViet = 1;
-        Toast.makeText(getActivity(), maBaiViet + "", Toast.LENGTH_LONG).show();
+
+
+
+        Toast.makeText(getActivity(),maBaiViet+"",Toast.LENGTH_SHORT).show();
         BaiVietDao baiVietDao = new BaiVietDao();
 
-        //  ArrayList<BaiViet> baiViets=baiVietDao.dsDanhMucChucNang(id);
+
         BaiViet baiViet = baiVietDao.chiTietBaiViet(maBaiViet);
-        Toast.makeText(getActivity(), maBaiViet + "", Toast.LENGTH_LONG).show();
+
         String tieuDe = baiViet.getTieuDe();
         String hinhAnh = baiViet.getHinhAnh();
         HashMap<String, String> mapNoiDung = baiViet.getListNoiDung();
 
         webView = (WebView) rootView.findViewById(R.id.webview);
 
-        //disable selection text in webview
+
         webView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -77,7 +75,7 @@ public class ItemOneFragment extends Fragment {
         html.append("<body>");
 
         html.append("<div align=\"center\"><img src=" + hinhAnh + "></div>");
-        // html.append("<h3>"+tieuDe+"</h3>");
+
 
         html.append("<div id=\"content\">");
         for (String key : mapNoiDung.keySet()) {
@@ -91,7 +89,7 @@ public class ItemOneFragment extends Fragment {
         webView.loadDataWithBaseURL("file:///android_asset/", html.toString(), "text/html", "UTF-8", "");
 
 
-//        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptEnabled(true);
         toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         toolbar.setTitle(tieuDe);
 

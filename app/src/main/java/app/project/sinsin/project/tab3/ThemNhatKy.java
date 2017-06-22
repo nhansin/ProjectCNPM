@@ -1,12 +1,11 @@
 package app.project.sinsin.project.tab3;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -15,13 +14,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import app.project.sinsin.project.MainActivity;
 import app.project.sinsin.project.R;
+import app.project.sinsin.project.dao.NhatKyDao;
 
 /**
  * Created by SINSIN on 5/15/2017.
@@ -29,13 +30,16 @@ import app.project.sinsin.project.R;
 public class ThemNhatKy extends AppCompatActivity {
     Toolbar toolbar;
     Button btnSave;
+    EditText editTextNoiDung;
+    EditText editTextTieuDe;
     FloatingActionButton fab, fabCamera, fabGallery, fabShare;
     boolean show;
     File imgFile;
     ImageView imgNhatKy;
-    EditText edtTieuDe, edtNoiDung;
     int REQUEST_CODE_CAMERA = 123;
     int REQUEST_CODE_GALLERY = 456;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,25 +56,18 @@ public class ThemNhatKy extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        editTextNoiDung= (EditText) findViewById(R.id.editTextNoiDung);
+        editTextTieuDe= (EditText) findViewById(R.id.editTextTieuDe);
 
         btnSave = (Button) findViewById(R.id.btnSave);
+
 
         //xu ly su kien nhan button Save
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ThemNhatKy.this, "Saved", Toast.LENGTH_SHORT).show();
-            }
-        });
+                themNhatKy();
 
-        edtTieuDe = (EditText) findViewById(R.id.editTextTieuDe);
-        edtNoiDung = (EditText) findViewById(R.id.editTextNoiDung);
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tieuDe = edtTieuDe.getText().toString();
-                String noiDung = edtNoiDung.getText().toString();
             }
         });
 
@@ -78,7 +75,7 @@ public class ThemNhatKy extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fabCamera = (FloatingActionButton) findViewById(R.id.fabCamera);
         fabGallery = (FloatingActionButton) findViewById(R.id.fabGallery);
-        fabShare = (FloatingActionButton) findViewById(R.id.fabShare);
+//        fabShare = (FloatingActionButton) findViewById(R.id.fabShare);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,26 +111,26 @@ public class ThemNhatKy extends AppCompatActivity {
             }
         });
 
-        //fabShare: share
-        fabShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        //fabShare: share
+//        fabShare.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
     }
 
     private void hideButton() {
         fabCamera.hide();
         fabGallery.hide();
-        fabShare.hide();
+//        fabShare.hide();
     }
 
     private void showButton() {
         fabCamera.show();
         fabGallery.show();
-        fabShare.show();
+//        fabShare.show();
     }
 
     @Override
@@ -152,6 +149,26 @@ public class ThemNhatKy extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+    private void themNhatKy(){
+        String noiDung=editTextNoiDung.getText().toString();
+        String tieuDe=editTextTieuDe.getText().toString();
+        byte[] anh=getByteFromImage(imgNhatKy);
+        NhatKyDao nhatKyDao=new NhatKyDao();
+        nhatKyDao.themNhatKy(tieuDe,anh,noiDung);
+        Intent intent=new Intent(this,MainActivity.class);
+        startActivity(intent);
+
+
+    }
+    private byte[] getByteFromImage(ImageView imv){
+        BitmapDrawable drawable= (BitmapDrawable) imv.getDrawable();
+        Bitmap bitmap=drawable.getBitmap();
+        ByteArrayOutputStream stream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        byte[] byteArr=stream.toByteArray();
+        return byteArr;
+
     }
 }
 

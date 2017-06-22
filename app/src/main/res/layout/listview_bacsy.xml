@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:paddingTop="10dp"
-    tools:context="app.project.sinsin.project.ListViewActivity">
+    tools:context="app.project.sinsin.project.tab2.Tab2BacSy">
 
     <ImageView
         android:id="@+id/imageView"
@@ -53,7 +53,7 @@
 
                 android:src="@drawable/mail"
                 android:textColor="@color/background"
-                android:backgroundTint="@color/background_button"
+                android:backgroundTint="@color/colorFabButton2"
                 android:text="EMAIL" />
 
 
