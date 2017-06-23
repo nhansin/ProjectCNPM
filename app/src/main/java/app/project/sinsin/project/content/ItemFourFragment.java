@@ -58,8 +58,8 @@ public class ItemFourFragment extends Fragment {
         int height =(int)(displayMetrics.heightPixels/3);
 // chiều rộng
         int width = (int)(displayMetrics.widthPixels/1.57);
-        url=url.replace("560",""+width);
-        url=url.replace("315",""+height);
+//        url=url.replace("560",""+width);
+//        url=url.replace("315",""+height);
 
 
         String html = "<html><body><br>"+url+"</body></html>";

@@ -17,7 +17,7 @@ import app.project.sinsin.project.tab2.Tab2BacSy;
 import app.project.sinsin.project.tab3.Tab3NhatKy;
 
 public class MainActivity extends AppCompatActivity {
-    final String DATABASE_NAME="NhatKyBiBauDB1.sqlite";
+    final String DATABASE_NAME="NhatKyBiBauDB.sqlite";
     public static SQLiteDatabase database;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
-        icon= new int[]{R.drawable.content, R.drawable.contact, R.drawable.dialog};
+        icon= new int[]{R.drawable.icontab1, R.drawable.icontab2, R.drawable.icontab3};
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         setUpTabIcon();

@@ -2,20 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_item1"
-        android:icon="@drawable/call"
+        android:icon="@drawable/icon11"
         android:title="TỔNG QUAN" />
     <item
         android:id="@+id/action_item2"
-        android:icon="@drawable/ic_camera"
+        android:icon="@drawable/icon12"
         android:title="THỰC PHẨM" />
     <item
         android:id="@+id/action_item3"
-        android:icon="@drawable/contact"
+        android:icon="@drawable/icon13"
 
         android:title="MÓN ĂN" />
 
     <item
         android:id="@+id/action_item4"
-        android:icon="@drawable/mail"
+        android:icon="@drawable/icon14"
         android:title="VIDEO" />
 </menu>

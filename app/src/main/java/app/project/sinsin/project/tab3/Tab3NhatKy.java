@@ -35,7 +35,7 @@ public class Tab3NhatKy extends Fragment {
     boolean show;
     NhatKyDao nhatKyDao;
     ArrayList<NhatKy> listNhatKy;
-    NhatKyAdapter adapter;
+   public static NhatKyAdapter adapter;
 
     @Nullable
     @Override

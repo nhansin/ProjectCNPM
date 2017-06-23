@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -156,8 +157,13 @@ public class ThemNhatKy extends AppCompatActivity {
         byte[] anh=getByteFromImage(imgNhatKy);
         NhatKyDao nhatKyDao=new NhatKyDao();
         nhatKyDao.themNhatKy(tieuDe,anh,noiDung);
-        Intent intent=new Intent(this,MainActivity.class);
+        Toast.makeText(this,"Nhật ký mới đã được thêm",Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(this, MainActivity.class);
         startActivity(intent);
+
+       // finish();
+       // Tab3NhatKy.adapter.notifyDataSetChanged();
+
 
 
     }
